@@ -3,6 +3,8 @@ package Personas;
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View {
     private JTextField textFieldID;
@@ -34,5 +36,18 @@ public class View {
         textFieldName.addMouseListener(highligther);
         textField1.addMouseListener(highligther);
 
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Name: "+textFieldName.getText()+"\n");
+            }
+        });
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textFieldName.setText("");
+                textFieldID.setText("");
+            }
+        });
     }
 }
